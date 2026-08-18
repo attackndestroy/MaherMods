@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAHER MODS - رفع المودات</title>
+
+  <style>
+    :root {
+      --bg: #09090b;
+      --card: #18181b;
+      --accent: #facc15;
+      --accent-hover: #eab308;
+      --text: #f8fafc;
+      --border: #27272a;
+      --muted: #a1a1aa;
+    }
+
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .container { max-width: 500px; width: 100%; }
+    header { text-align: center; margin-bottom: 25px; }
+    .brand { color: var(--accent); font-size: 2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+    .sub-brand { color: var(--muted); font-size: 0.9rem; margin-top: 5px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 15px; }
+    .card-title { color: var(--accent); font-size: 1.2rem; font-weight: bold; margin-bottom: 20px; text-align: center; }
+    .form-group { margin-bottom: 18px; text-align: right; }
+    label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 8px; }
+    input[type="text"], input[type="password"] { width: 100%; padding: 14px; background: #09090b; border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; outline: none; direction: ltr; text-align: left; }
+    input[type="text"]:focus, input[type="password"]:focus { border-color: var(--accent); }
+    .btn { width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.2s; margin-top: 10px; }
+    .btn-main { background: var(--accent); color: #000; }
+    .btn-main:hover { background: var(--accent-hover); }
+    .btn-main:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .status-msg { padding: 10px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 15px; display: none; text-align: center; font-weight: 500; }
+    .status-success { background: #166534; color: #4ade80; }
+    .status-info { background: #1e3a8a; color: #93c5fd; }
+    .status-danger { background: #991b1b; color: #fca5a5; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="brand">MAHER MODS</div>
+    <div class="sub-brand">لوحة رفع المودات المباشرة</div>
+  </header>
+
+  <!-- بطاقة التوكن والإعدادات -->
+  <div class="card" id="configCard">
+    <div class="card-title">إعدادات الاتصال</div>
+    <div class="form-group">
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="userToken" placeholder="github_pat_...">
+    </div>
+    <button class="btn btn-main" onclick="saveToken()">حفظ التوكن والاتصال 🔑</button>
+  </div>
+
+  <!-- نموذج إضافة/رفع المود -->
+  <div class="card" id="uploadCard" style="display: none;">
+    <div class="card-title">إضافة مود جديد</div>
+    
+    <div class="form-group">
+      <label>رقم المود (ID)</label>
+      <input type="text" id="modId" placeholder="مثال: 1">
+    </div>
+
+    <div class="form-group">
+      <label>الرابط المباشر للمود</label>
+      <input type="text" id="modUrl" placeholder="https://...">
+    </div>
+
+    <div id="statusMsg" class="status-msg"></div>
+
+    <button class="btn btn-main" id="saveBtn" onclick="uploadMod()">رفع المود 🚀</button>
+  </div>
+
+</div>
+
+<script>
+  /* ===================================================
+     إعدادات مستودعك
+     =================================================== */
+  const GITHUB_USER  = 'YOUR_GITHUB_USERNAME'; // غيّر هذا فقط لاسم حسابك
+  const GITHUB_REPO  = 'mahermods';
+  const DOMAIN_URL   = 'https://maher.attdes.online';
+
+  let GITHUB_TOKEN = localStorage.getItem('maher_gh_token') || '';
+  let dbData = {};
+  let fileSha = "";
+
+  window.onload = function() {
+    if (GITHUB_TOKEN) {
+      document.getElementById('configCard').style.display = 'none';
+      document.getElementById('uploadCard').style.display = 'block';
+      initGitHubData();
+    }
+  };
+
+  function saveToken() {
+    const inputToken = document.getElementById('userToken').value.trim();
+    if (!inputToken.startsWith('github_pat_')) {
+      alert('يرجى أدخال توكن صحيح يبدأ بـ github_pat_');
+      return;
+    }
+    localStorage.setItem('maher_gh_token', inputToken);
+    GITHUB_TOKEN = inputToken;
+    document.getElementById('configCard').style.display = 'none';
+    document.getElementById('uploadCard').style.display = 'block';
+    initGitHubData();
+  }
+
+  function initGitHubData() {
+    const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/mod.json`;
+
+    fetch(url, {
+      headers: { 
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    })
+    .then(res => {
+      if(!res.ok) throw new Error("التوكن غير صحيح أو خطأ في مستودع GitHub");
+      return res.json();
+    })
+    .then(data => {
+      fileSha = data.sha;
+      const content = decodeBase64UTF8(data.content);
+      dbData = JSON.parse(content);
+      autoSuggestId();
+    })
+    .catch(err => {
+      showStatus(`خطأ: ${err.message}`, 'danger');
+      localStorage.removeItem('maher_gh_token');
+      setTimeout(() => location.reload(), 2000);
+    });
+  }
+
+  function uploadMod() {
+    const id = document.getElementById('modId').value.trim();
+    const url = document.getElementById('modUrl').value.trim();
+
+    if (!id || !url) {
+      showStatus('يرجى ملء كافة الحقول!', 'danger');
+      return;
+    }
+
+    dbData[id] = encodeBase64(url);
+    pushToGitHub(id);
+  }
+
+  function pushToGitHub(id) {
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.disabled = true;
+    saveBtn.innerText = 'جاري رفع المود... ⏳';
+
+    const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/mod.json`;
+    const updatedContent = encodeBase64UTF8(JSON.stringify(dbData, null, 2));
+
+    const bodyData = {
+      message: `إضافة المود #${id}`,
+      content: updatedContent,
+      sha: fileSha
+    };
+
+    fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      body: JSON.stringify(bodyData)
+    })
+    .then(res => {
+      if(!res.ok) throw new Error("فشل الرفع");
+      return res.json();
+    })
+    .then(data => {
+      fileSha = data.content.sha;
+      const finalLink = `${DOMAIN_URL}/?id=${id}`;
+      copyToClipboard(finalLink);
+
+      showStatus(`تم الرفع ونسخ الرابط النهائي تلقائياً! 📋🔗`, 'success');
+      document.getElementById('modUrl').value = '';
+      autoSuggestId();
+    })
+    .catch(err => {
+      showStatus('حدث خطأ أثناء رفع المود!', 'danger');
+    })
+    .finally(() => {
+      saveBtn.disabled = false;
+      saveBtn.innerText = 'رفع المود 🚀';
+    });
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text);
+    } else {
+      let textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand('copy');
+      textArea.remove();
+    }
+  }
+
+  function autoSuggestId() {
+    const keys = Object.keys(dbData).map(k => parseInt(k)).filter(n => !isNaN(n));
+    document.getElementById('modId').value = keys.length > 0 ? Math.max(...keys) + 1 : 1;
+  }
+
+  function encodeBase64(str) {
+    try { return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (m, p1) => String.fromCharCode('0x' + p1))); } 
+    catch (e) { return str; }
+  }
+
+  function encodeBase64UTF8(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+  function decodeBase64UTF8(str) {
+    return decodeURIComponent(escape(atob(str.replace(/\n/g, ''))));
+  }
+
+  function showStatus(msg, type) {
+    const statusEl = document.getElementById('statusMsg');
+    statusEl.innerText = msg;
+    statusEl.className = `status-msg status-${type}`;
+    statusEl.style.display = 'block';
+    if (type !== 'info') {
+      setTimeout(() => { statusEl.style.display = 'none'; }, 4000);
+    }
+  }
+</script>
+
+</body>
+</html>
