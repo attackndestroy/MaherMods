@@ -83,7 +83,7 @@
   /* ===================================================
      إعدادات مستودعك
      =================================================== */
-  const GITHUB_USER  = 'YOUR_GITHUB_USERNAME'; // غيّر هذا فقط لاسم حسابك
+  const GITHUB_USER  = 'attackndestroy'; // تم ضبط اسم المستخدم
   const GITHUB_REPO  = 'mahermods';
   const DOMAIN_URL   = 'https://maher.attdes.online';
 
@@ -102,7 +102,7 @@
   function saveToken() {
     const inputToken = document.getElementById('userToken').value.trim();
     if (!inputToken.startsWith('github_pat_')) {
-      alert('يرجى أدخال توكن صحيح يبدأ بـ github_pat_');
+      alert('يرجى إدخال توكن صحيح يبدأ بـ github_pat_');
       return;
     }
     localStorage.setItem('maher_gh_token', inputToken);
