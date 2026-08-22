@@ -1,802 +1,292 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>ATT/DES - Maher Mods</title>
-
-  <style>
-
-    :root {
-      --bg: #09090b;
-      --card: #18181b;
-      --accent: #facc15;
-      --accent-hover: #eab308;
-      --green: #22c55e;
-      --green-hover: #16a34a;
-      --text: #f8fafc;
-      --border: #27272a;
-      --muted: #a1a1aa;
-      --error: #f87171;
-      --success: #4ade80;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 500px;
-      width: 100%;
-      margin: auto;
-      text-align: center;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      color: var(--accent);
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 7px;
-      text-transform: uppercase;
-    }
-
-    .sub-brand {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* =========================
-       SCROLL BOX
-    ========================= */
-
-    .hero-scroll {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 22px;
-    }
-
-    .hero-scroll p {
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    .arrows {
-      font-size: 1.5rem;
-      color: var(--accent);
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0);
-      }
-
-      40% {
-        transform: translateY(8px);
-      }
-
-      60% {
-        transform: translateY(4px);
-      }
-
-    }
-
-    /* =========================
-       ADS
-    ========================= */
-
-    .ads-section {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .ad-box {
-      min-height: 70px;
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    /* =========================
-       STATUS
-    ========================= */
-
-    .status-msg {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    /* =========================
-       GTA SA BUTTON
-    ========================= */
-
-    .gta-section {
-      margin: 15px 0 20px;
-      text-align: center;
-    }
-
-    .gta-btn {
-      display: inline-block;
-      width: 85%;
-      padding: 11px 14px;
-      background: var(--green);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.9rem;
-      border-radius: 8px;
-
-      transition:
-        background 0.2s,
-        transform 0.1s;
-    }
-
-    .gta-btn:hover {
-      background: var(--green-hover);
-    }
-
-    .gta-btn:active {
-      transform: scale(0.98);
-    }
-
-    /* =========================
-       DOWNLOAD BUTTON
-    ========================= */
-
-    .download-section {
-      margin: 20px 0 25px;
-    }
-
-    .btn-dl {
-      display: block;
-      width: 100%;
-      padding: 16px;
-
-      background: var(--accent);
-      color: #000;
-
-      text-decoration: none;
-
-      font-weight: 900;
-      font-size: 1.1rem;
-
-      border-radius: 10px;
-
-      box-shadow:
-        0 4px 15px
-        rgba(250, 204, 21, 0.3);
-
-      opacity: 0.5;
-      pointer-events: none;
-
-      transition:
-        background 0.2s,
-        transform 0.1s;
-    }
-
-    .btn-dl.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .btn-dl:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-dl:active {
-      transform: scale(0.98);
-    }
-
-    /* =========================
-       SOCIAL MEDIA
-    ========================= */
-
-    .social-box {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .social-btn {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-
-      padding: 10px 18px;
-
-      border-radius: 8px;
-
-      text-decoration: none;
-
-      font-size: 0.85rem;
-      font-weight: bold;
-
-      transition:
-        border-color 0.2s,
-        color 0.2s;
-    }
-
-    .social-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      color: var(--muted);
-      font-size: 0.75rem;
-
-      margin-top: 15px;
-
-      border-top:
-        1px solid var(--border);
-
-      padding-top: 15px;
-
-      width: 100%;
-
-      line-height: 1.7;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 400px) {
-
-      body {
-        padding: 14px;
-      }
-
-      .brand {
-        font-size: 1.7rem;
-      }
-
-      .social-box {
-        gap: 8px;
-      }
-
-      .social-btn {
-        padding: 9px 14px;
-      }
-
-    }
-
-  </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل المود - GTA SA - ATT/DES Progz</title>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y6gxol46zv");
+    </script>
+
+    <!-- Popunder Code -->
+    <script src="https://pl30973929.profitableratecpmnetwork.com/76/44/f8/7644f892714fb3b7b0cd1b7d014db7ae.js"></script>
+
+    <!-- Social Bar Code -->
+    <script>
+      atOptions = {
+        'key' : '388477403794d8afb9cf4f7e1b80d9cb',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #ffcc00;
+            --text-color: #ffffff;
+            --green-btn: #28a745;
+            --green-btn-hover: #218838;
+            --blue-btn: #007bff;
+            --blue-btn-hover: #0056b3;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .header-img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .alert-box {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--accent-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            margin: 8px auto;
+            width: 90%;
+            max-width: 340px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .banner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin: 8px 0;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffffff;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            width: 85%;
+            max-width: 280px;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-green {
+            background-color: var(--green-btn);
+        }
+
+        .btn-green:hover {
+            background-color: var(--green-btn-hover);
+        }
+
+        .btn-blue {
+            background-color: var(--blue-btn);
+        }
+
+        .btn-blue:hover {
+            background-color: var(--blue-btn-hover);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 12px;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 12px;
+            border-top: 1px solid #222;
+            width: 100%;
+        }
+    </style>
 </head>
-
-
 <body>
 
+    <!-- Header Image -->
+    <img src="https://attdes.online/header.png" alt="Header" class="header-img">
 
-<div class="container">
-
-
-  <!-- =========================
-       HEADER
-  ========================= -->
-
-  <header>
-
-    <div class="brand">
-      ATT/DES
+    <!-- Alert Box Under Header -->
+    <div class="alert-box">
+        المود جاهز للتحميل✅<br>
+        إنزل تحت وإضغط تحميل المود♥<br>
+        <span style="color: var(--accent-color); font-size: 12px;">The mod is ready, scroll down to download</span>
     </div>
 
-    <div class="sub-brand">
-      Maher Mods - تعديلات وملفات GTA SA
+    <!-- Banner ×1 (Unique Network) -->
+    <div style="margin: 5px 0;">
+        <script async="async" data-cfasync="false" src="https://pl30973930.profitableratecpmnetwork.com/4e741cbe49c2d9a08d3443399635a370/invoke.js"></script>
+        <div id="container-4e741cbe49c2d9a08d3443399635a370"></div>
     </div>
 
-  </header>
+    <!-- Banner ×3 Stacked -->
+    <div class="banner-container">
+        <!-- Banner 1 -->
+        <div>
+            <script>
+              atOptions = {
+                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+        </div>
 
+        <!-- Banner 2 -->
+        <div>
+            <script>
+              atOptions = {
+                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+        </div>
 
-  <!-- =========================
-       SCROLL MESSAGE
-  ========================= -->
-
-  <div class="hero-scroll">
-
-    <p>
-      رابط ملفك جاهز في الأسفل، يرجى النزول لإكماله 👇
-    </p>
-
-    <div class="arrows">
-      ▼ ▼ ▼
+        <!-- Banner 3 -->
+        <div>
+            <script>
+              atOptions = {
+                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+        </div>
     </div>
 
-  </div>
+    <!-- Buttons Section -->
+    <div class="btn-container">
+        <!-- GTA SA Download Button (Hidden Protected Link) -->
+        <button id="gtaBtn" class="btn btn-green">
+            تحميل لعبة GTA SA
+        </button>
 
-
-  <!-- =========================
-       5 ADS
-  ========================= -->
-
-  <div class="ads-section">
-
-
-    <!-- AD 1 -->
-
-    <div class="ad-box">
-
-      <script>
-        atOptions = {
-          'key': '388477403794d8afb9cf4f7e1b80d9cb',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://www.highperformanceformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
+        <!-- Dynamic Mod Download Button (Decoded from mod.json) -->
+        <button id="modBtn" class="btn btn-blue">
+            جاري تحميل الرابط...
+        </button>
     </div>
 
-
-    <!-- AD 2 -->
-
-    <div class="ad-box">
-
-      <script>
-        atOptions = {
-          'key': '388477403794d8afb9cf4f7e1b80d9cb',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://www.highperformanceformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
-    </div>
-
-
-    <!-- AD 3 -->
-
-    <div class="ad-box">
-
-      <script>
-        atOptions = {
-          'key': '388477403794d8afb9cf4f7e1b80d9cb',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://www.highperformanceformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
-    </div>
-
-
-    <!-- AD 4 -->
-
-    <div class="ad-box">
-
-      <script>
-        atOptions = {
-          'key': '388477403794d8afb9cf4f7e1b80d9cb',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://www.highperformanceformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
-    </div>
-
-
-    <!-- AD 5 -->
-
-    <div class="ad-box">
-
-      <script>
-        atOptions = {
-          'key': '388477403794d8afb9cf4f7e1b80d9cb',
-          'format': 'iframe',
-          'height': 50,
-          'width': 320,
-          'params': {}
-        };
-      </script>
-
-      <script src="https://www.highperformanceformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
-    </div>
-
-
-  </div>
-
-
-  <!-- =========================
-       STATUS
-  ========================= -->
-
-  <div
-    id="statusMsg"
-    class="status-msg"
-  >
-    جاري تجهيز الرابط من السحابة...
-  </div>
-
-
-  <!-- =========================
-       GTA SA
-  ========================= -->
-
-  <div class="gta-section">
-
-    <a
-      href="https://link.attdes.online/mc"
-      class="gta-btn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🎮 تحميل لعبة GTA SA
-    </a>
-
-  </div>
-
-
-  <!-- =========================
-       MOD DOWNLOAD
-  ========================= -->
-
-  <div class="download-section">
-
-    <a
-      href="#"
-      id="dlBtn"
-      class="btn-dl"
-    >
-      تحميل الملف الآن 📥
-    </a>
-
-  </div>
-
-
-  <!-- =========================
-       SOCIAL MEDIA
-  ========================= -->
-
-  <div class="social-box">
-
-    <a
-      href="https://youtube.com/@ماهر-مودات"
-      class="social-btn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      يوتيوب
-    </a>
-
-
-    <a
-      href="https://t.me/mahar_mods"
-      class="social-btn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      تلجرام
-    </a>
-
-  </div>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    &copy; 2026 ATT/DES - Maher Mods.
-
-    <br>
-
-    جميع الحقوق محفوظة.
-
-  </footer>
-
-
-</div>
-
-
-<script>
-
-  /* =========================
-     JSON SOURCE
-  ========================= */
-
-  const API_URL =
-    'https://maher.attdes.online/mod.json';
-
-
-  /* =========================
-     SMARTLINK
-  ========================= */
-
-  const SMARTLINK =
-    'https://www.effectivecpmnetwork.com/qyw9rwgjh?key=ddfcf2ad5cc5d88d9d75ec98a1a7548b';
-
-
-  /* =========================
-     GET ID
-     
-     مثال:
-     mod.html?id=001
-  ========================= */
-
-  const urlParams =
-    new URLSearchParams(
-      window.location.search
-    );
-
-  const modId =
-    urlParams.get('id');
-
-
-  const msgEl =
-    document.getElementById(
-      'statusMsg'
-    );
-
-
-  const dlBtn =
-    document.getElementById(
-      'dlBtn'
-    );
-
-
-  /* =========================
-     CHECK ID
-  ========================= */
-
-  if (!modId) {
-
-    msgEl.innerText =
-      '⚠️ خطأ: لم يتم تحديد رقم المود في الرابط!';
-
-    msgEl.style.color =
-      '#f87171';
-
-  } else {
-
-
-    /* =========================
-       FETCH JSON
-    ========================= */
-
-    fetch(API_URL)
-
-      .then(response => {
-
-        if (!response.ok) {
-
-          throw new Error(
-            'HTTP ' +
-            response.status
-          );
-
-        }
-
-        return response.json();
-
-      })
-
-
-      .then(data => {
-
-
-        /* =========================
-           CHECK MOD
-        ========================= */
-
-        if (
-          data &&
-          Object.prototype.hasOwnProperty.call(
-            data,
-            modId
-          )
-        ) {
-
-
-          const destinationUrl =
-            data[modId];
-
-
-          /* =========================
-             CHECK DESTINATION
-          ========================= */
-
-          if (
-            typeof destinationUrl !==
-              'string' ||
-            !destinationUrl.trim()
-          ) {
-
-            msgEl.innerText =
-              '❌ رابط الملف غير صالح.';
-
-            msgEl.style.color =
-              '#f87171';
-
-            return;
-
-          }
-
-
-          /* =========================
-             ACTIVATE BUTTON
-          ========================= */
-
-          dlBtn.classList.add(
-            'active'
-          );
-
-
-          /* =========================
-             STATUS
-          ========================= */
-
-          msgEl.innerText =
-            '✅ الملف جاهز للتحميل أدناه';
-
-          msgEl.style.color =
-            '#4ade80';
-
-
-          /* =========================
-             DOWNLOAD CLICK
-          ========================= */
-
-          dlBtn.addEventListener(
-            'click',
-            function(event) {
-
-              event.preventDefault();
-
-
-              /*
-               * فتح رابط الملف في
-               * تاب جديد
-               */
-
-              const newTab =
-                document.createElement(
-                  'a'
-                );
-
-
-              newTab.href =
-                destinationUrl;
-
-
-              newTab.target =
-                '_blank';
-
-
-              newTab.rel =
-                'noopener noreferrer';
-
-
-              document.body.appendChild(
-                newTab
-              );
-
-
-              newTab.click();
-
-
-              newTab.remove();
-
-
-              /*
-               * فتح SmartLink
-               * في التاب الحالي
-               */
-
-              window.location.href =
-                SMARTLINK;
-
+    <!-- Footer -->
+    <footer>
+        Copyright: ATT/DES Progz
+    </footer>
+
+    <!-- Core Scripts Logic -->
+    <script>
+        // Universal Base64 Safe Decoder Function
+        function decodeBase64(str) {
+            try {
+                return atob(str.trim());
+            } catch (e) {
+                return null;
             }
-          );
-
-
-        } else {
-
-
-          /* =========================
-             MOD NOT FOUND
-          ========================= */
-
-          msgEl.innerText =
-            '❌ عذرا، هذا المود غير موجود.';
-
-          msgEl.style.color =
-            '#f87171';
-
         }
 
-      })
+        document.addEventListener("DOMContentLoaded", function () {
+            // Target Encrypted GTA URL: https://link.attdes.online/gtasa
+            const encryptedGtaUrl = "aHR0cHM6Ly9saW5rLmF0dGRlcy5vbmxpbmUvZ3Rhc2E=";
+            const gtaBtn = document.getElementById('gtaBtn');
+            const modBtn = document.getElementById('modBtn');
 
+            // Handle GTA SA Download Action
+            gtaBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const destination = decodeBase64(encryptedGtaUrl);
+                if (destination) {
+                    window.open(destination, '_blank');
+                }
+            });
 
-      .catch(error => {
+            // Fetch Mod Link Dynamic Logic from mod.json
+            const urlParams = new URLSearchParams(window.location.search);
+            const modId = urlParams.get('id');
 
-        console.error(
-          'JSON Error:',
-          error
-        );
-
-
-        msgEl.innerText =
-          '❌ فشل الاتصال بملف البيانات.';
-
-        msgEl.style.color =
-          '#f87171';
-
-      });
-
-  }
-
-
-
+            if (modId) {
+                fetch('mod.json')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network error');
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data[modId]) {
+                            const decodedModUrl = decodeBase64(data[modId]);
+                            
+                            if (decodedModUrl) {
+                                modBtn.textContent = 'تحميل المود';
+                                modBtn.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    window.open(decodedModUrl, '_blank');
+                                });
+                            } else {
+                                modBtn.textContent = 'خطأ في فك التشفير';
+                                modBtn.style.backgroundColor = '#dc3545';
+                            }
+                        } else {
+                            modBtn.textContent = 'المود غير موجود';
+                            modBtn.style.backgroundColor = '#dc3545';
+                        }
+                    })
+                    .catch(error => {
+                        modBtn.textContent = 'خطأ في جلب البيانات';
+                        modBtn.style.backgroundColor = '#dc3545';
+                    });
+            } else {
+                modBtn.textContent = 'غير محدد ID المود';
+                modBtn.style.backgroundColor = '#dc3545';
+            }
+        });
+    </script>
 </body>
-
 </html>
