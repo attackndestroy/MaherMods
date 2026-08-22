@@ -3,290 +3,588 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل المود - GTA SA - ATT/DES Progz</title>
-
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "y6gxol46zv");
-    </script>
-
-    <!-- Popunder Code -->
-    <script src="https://pl30973929.profitableratecpmnetwork.com/76/44/f8/7644f892714fb3b7b0cd1b7d014db7ae.js"></script>
-
-    <!-- Social Bar Code -->
-    <script>
-      atOptions = {
-        'key' : '388477403794d8afb9cf4f7e1b80d9cb',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
-
+    <title>MAHER MODS - Dashboard</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-color: #ffcc00;
-            --text-color: #ffffff;
-            --green-btn: #28a745;
-            --green-btn-hover: #218838;
-            --blue-btn: #007bff;
-            --blue-btn-hover: #0056b3;
+            --bg: #121212;
+            --card: #1e1e1e;
+            --accent: #ffcc00;
+            --text: #ffffff;
+            --green: #28a745;
+            --blue: #007bff;
+            --red: #dc3545;
+            --gray: #333;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
-            padding: 0 10px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
         }
 
-        .header-img {
+        .container {
             width: 100%;
-            max-width: 320px;
-            height: auto;
-            display: block;
-            margin-top: 5px;
-        }
-
-        .alert-box {
-            background-color: var(--card-bg);
-            border: 1.5px solid var(--accent-color);
-            color: var(--text-color);
-            padding: 8px 12px;
-            margin: 8px auto;
-            width: 90%;
-            max-width: 340px;
-            text-align: center;
-            border-radius: 6px;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .banner-container {
+            max-width: 750px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            margin: 8px 0;
+            gap: 20px;
         }
 
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 12px 0;
-            width: 100%;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 16px;
-            font-size: 15px;
-            font-weight: bold;
-            color: #ffffff;
-            border-radius: 6px;
+        header {
             text-align: center;
-            cursor: pointer;
-            width: 85%;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        header img {
             max-width: 280px;
-            box-sizing: border-box;
-            border: none;
-            outline: none;
-            text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            height: auto;
         }
 
-        .btn:active {
-            transform: scale(0.98);
+        .card {
+            background-color: var(--card);
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .btn-green {
-            background-color: var(--green-btn);
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 8px;
         }
 
-        .btn-green:hover {
-            background-color: var(--green-btn-hover);
+        .form-group {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .btn-blue {
-            background-color: var(--blue-btn);
+        label {
+            font-size: 14px;
+            font-weight: bold;
         }
 
-        .btn-blue:hover {
-            background-color: var(--blue-btn-hover);
+        .input-row {
+            display: flex;
+            gap: 8px;
         }
 
-        footer {
-            margin-top: auto;
-            padding: 12px;
-            text-align: center;
-            color: var(--accent-color);
-            font-size: 12px;
-            border-top: 1px solid #222;
+        input[type="text"], textarea {
             width: 100%;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 14px;
         }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        button {
+            padding: 10px 14px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;
+            transition: opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        button:hover { opacity: 0.85; }
+
+        .btn-green { background-color: var(--green); }
+        .btn-blue { background-color: var(--blue); }
+        .btn-red { background-color: var(--red); }
+        .btn-gray { background-color: #555; }
+
+        .search-box {
+            margin-bottom: 15px;
+        }
+
+        .sort-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .sort-btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 13px;
+            background-color: #2a2a2a;
+            color: #ccc;
+            border: 1px solid #444;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sort-btn.active {
+            background-color: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            font-weight: bold;
+        }
+
+        .mod-item {
+            background-color: #262626;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mod-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mod-id {
+            background-color: var(--accent);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .mod-details {
+            font-size: 12px;
+            word-break: break-all;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mod-details div {
+            background-color: #1a1a1a;
+            padding: 6px;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 140px;
+            font-family: monospace;
+            direction: ltr;
+        }
+
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 12px 16px;
+            position: fixed;
+            z-index: 999;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            font-size: 14px;
+            border: 1px solid var(--accent);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.3s 2.7s;
+        }
+
+        #tokenModal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid var(--accent);
+            text-align: center;
+        }
+
+        @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+        @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
     </style>
 </head>
 <body>
 
-    <!-- Header Image -->
-    <img src="https://attdes.online/header.png" alt="Header" class="header-img">
-
-    <!-- Alert Box Under Header -->
-    <div class="alert-box">
-        المود جاهز للتحميل✅<br>
-        إنزل تحت وإضغط تحميل المود♥<br>
-        <span style="color: var(--accent-color); font-size: 12px;">The mod is ready, scroll down to download</span>
+<div id="tokenModal" style="display: none;">
+    <div class="modal-content">
+        <h3 style="color: var(--accent); margin-top:0;">إدخال GitHub API Token</h3>
+        <p style="font-size: 13px; color: #ccc;">يرجى إدخال Personal Access Token لإدارة مستودع mahermods:</p>
+        <div class="form-group">
+            <input type="text" id="apiTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+        </div>
+        <button class="btn-green" style="width: 100%; padding: 10px;" onclick="saveTokenUI()">حفظ والتنسيق</button>
     </div>
+</div>
 
-    <!-- Banner ×1 (Unique Network) -->
-    <div style="margin: 5px 0;">
-        <script async="async" data-cfasync="false" src="https://pl30973930.profitableratecpmnetwork.com/4e741cbe49c2d9a08d3443399635a370/invoke.js"></script>
-        <div id="container-4e741cbe49c2d9a08d3443399635a370"></div>
-    </div>
+<div class="container">
+    <header>
+        <img src="https://attdes.online/header.png" alt="MAHER MODS - ATT/DES Progz">
+    </header>
 
-    <!-- Banner ×3 Stacked -->
-    <div class="banner-container">
-        <!-- Banner 1 -->
-        <div>
-            <script>
-              atOptions = {
-                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+    <!-- SECTION 1: ADD MOD -->
+    <div class="card">
+        <h3>قسم 1: إضافة مود جديد (MAHER)</h3>
+        <div class="form-group">
+            <label>معرف المود (ID) - تلقائي:</label>
+            <input type="text" id="newModId" readonly style="background-color: #1a1a1a; color: var(--accent); font-weight: bold;">
         </div>
 
-        <!-- Banner 2 -->
-        <div>
-            <script>
-              atOptions = {
-                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+        <div class="form-group">
+            <label>رابط المود الأصلي:</label>
+            <div class="input-row">
+                <input type="text" id="newModUrl" placeholder="https://www.mediafire.com/file/...">
+                <button class="btn-gray" onclick="pasteUrl()">📋 لصق</button>
+            </div>
         </div>
 
-        <!-- Banner 3 -->
-        <div>
-            <script>
-              atOptions = {
-                'key' : '388477403794d8afb9cf4f7e1b80d9cb',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highrevenueformat.com/388477403794d8afb9cf4f7e1b80d9cb/invoke.js"></script>
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="optCheck">
+                تفعيل Optimization (استبدال آخر حرف/رقم بـ 1)
+            </label>
+        </div>
+
+        <button class="btn-green" style="width: 100%; padding: 12px; font-size: 16px;" onclick="submitMod()">🚀 إرسال وتحديث GitHub</button>
+    </div>
+
+    <!-- SECTION 2: EXPORT & PREVIEW -->
+    <div class="card">
+        <h3>قسم 2: تصدير ونسخ البيانات</h3>
+        <div class="form-group">
+            <label>معاينة JSON الحالية:</label>
+            <textarea id="jsonPreview" readonly></textarea>
+        </div>
+        <div class="input-row">
+            <button class="btn-blue" style="flex:1;" onclick="copyJson(true)">🔒 نسخ مشفّر كاملاً</button>
+            <button class="btn-gray" style="flex:1;" onclick="copyJson(false)">🔓 نسخ الأصلي بدون تشفير</button>
+        </div>
+        <div style="margin-top: 10px; font-size: 12px; text-align: center;">
+            رابط الملف المفعل: <a href="https://maher.attdes.online/mod.json" target="_blank" style="color: var(--accent);">maher.attdes.online/mod.json</a>
         </div>
     </div>
 
-    <!-- Buttons Section -->
-    <div class="btn-container">
-        <!-- GTA SA Download Button (Hidden Protected Link) -->
-        <button id="gtaBtn" class="btn btn-green">
-            تحميل لعبة GTA SA
-        </button>
+    <!-- SECTION 3: LIST MODS -->
+    <div class="card">
+        <h3>قسم 3: إدارة المودات الحالية (<span id="modCount">0</span>)</h3>
 
-        <!-- Dynamic Mod Download Button (Decoded from mod.json) -->
-        <button id="modBtn" class="btn btn-blue">
-            جاري تحميل الرابط...
-        </button>
+        <div class="sort-bar">
+            <button class="sort-btn active" id="sortNewestBtn" onclick="setSortOrder('newest')">⚡ الأحدث أولاً</button>
+            <button class="sort-btn" id="sortOldestBtn" onclick="setSortOrder('oldest')">⏳ الأقدم أولاً</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 بحث بواسطة الـ ID أو الرابط..." oninput="filterMods()">
+        </div>
+
+        <div id="modsContainer">جاري تحميل البيانات من GitHub...</div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        Copyright: ATT/DES Progz
-    </footer>
+    <button class="btn-red" style="margin-bottom: 20px;" onclick="resetApiToken()">🔑 تغيير GitHub API Token</button>
+</div>
 
-    <!-- Core Scripts Logic -->
-    <script>
-        // Universal Base64 Safe Decoder Function
-        function decodeBase64(str) {
-            try {
-                return atob(str.trim());
-            } catch (e) {
-                return null;
+<div id="toast"></div>
+
+<script>
+    const CONFIG = {
+        owner: 'attackndestroy',
+        repo: 'mahermods',
+        path: 'mod.json',
+        shareDomain: 'https://maher.attdes.online/mod.html?id='
+    };
+
+    let sortOrder = 'newest';
+    let apiToken = localStorage.getItem('gh_token_maher');
+    let rawData = {};
+    let currentSha = '';
+
+    window.addEventListener('DOMContentLoaded', () => {
+        checkToken();
+    });
+
+    function showToast(msg) {
+        const toast = document.getElementById("toast");
+        toast.textContent = msg;
+        toast.className = "show";
+        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+
+    function checkToken() {
+        if (!apiToken || apiToken.trim() === '') {
+            document.getElementById('tokenModal').style.display = 'flex';
+        } else {
+            document.getElementById('tokenModal').style.display = 'none';
+            fetchGithubData();
+        }
+    }
+
+    function saveTokenUI() {
+        const val = document.getElementById('apiTokenInput').value.trim();
+        if (val) {
+            apiToken = val;
+            localStorage.setItem('gh_token_maher', apiToken);
+            document.getElementById('tokenModal').style.display = 'none';
+            showToast("تم حفظ الـ API Token بنجاح!");
+            fetchGithubData();
+        } else {
+            showToast("يرجى كتابة الـ Token بشكل صحيح!");
+        }
+    }
+
+    function resetApiToken() {
+        localStorage.removeItem('gh_token_maher');
+        apiToken = null;
+        document.getElementById('apiTokenInput').value = '';
+        showToast("تم مسح الـ Token المخزن!");
+        checkToken();
+    }
+
+    function setSortOrder(order) {
+        sortOrder = order;
+        document.getElementById('sortNewestBtn').className = order === 'newest' ? 'sort-btn active' : 'sort-btn';
+        document.getElementById('sortOldestBtn').className = order === 'oldest' ? 'sort-btn active' : 'sort-btn';
+        filterMods();
+    }
+
+    function safeBtoa(str) {
+        return btoa(unescape(encodeURIComponent(str)));
+    }
+    function safeAtob(str) {
+        try {
+            return decodeURIComponent(escape(atob(str.trim())));
+        } catch(e) {
+            return str;
+        }
+    }
+
+    async function fetchGithubData() {
+        document.getElementById('modsContainer').textContent = 'جاري التحميل من GitHub...';
+        
+        try {
+            const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`, {
+                headers: { 'Authorization': `token ${apiToken}` }
+            });
+            if (!res.ok) {
+                if(res.status === 401) {
+                    showToast("الـ Token غير صحيح أو منتهي الصلاحية!");
+                    resetApiToken();
+                    return;
+                }
+                throw new Error('فشل جلب البيانات، تأكد من مسار الملف واسم المستودع.');
+            }
+            
+            const data = await res.json();
+            currentSha = data.sha;
+            
+            const decodedContent = safeAtob(data.content);
+            rawData = JSON.parse(decodedContent);
+
+            renderDashboard();
+        } catch(e) {
+            showToast(e.message);
+        }
+    }
+
+    function renderDashboard() {
+        const keys = Object.keys(rawData).map(k => parseInt(k)).filter(n => !isNaN(n));
+        const maxId = keys.length > 0 ? Math.max(...keys) + 1 : 1;
+        document.getElementById('newModId').value = maxId;
+
+        document.getElementById('jsonPreview').value = JSON.stringify(rawData, null, 2);
+        document.getElementById('modCount').textContent = Object.keys(rawData).length;
+
+        filterMods();
+    }
+
+    function filterMods() {
+        const query = document.getElementById('searchInput').value.toLowerCase().trim();
+        const container = document.getElementById('modsContainer');
+        container.innerHTML = '';
+
+        let keys = Object.keys(rawData);
+
+        keys.sort((a, b) => {
+            const numA = parseInt(a), numB = parseInt(b);
+            if (!isNaN(numA) && !isNaN(numB)) {
+                return sortOrder === 'newest' ? numB - numA : numA - numB;
+            }
+            return sortOrder === 'newest' ? b.localeCompare(a) : a.localeCompare(b);
+        });
+
+        let matches = 0;
+
+        for (let id of keys) {
+            const encryptedUrl = rawData[id];
+            const originalUrl = safeAtob(encryptedUrl);
+
+            if (id.toLowerCase().includes(query) || originalUrl.toLowerCase().includes(query) || encryptedUrl.toLowerCase().includes(query)) {
+                matches++;
+                const modEl = document.createElement('div');
+                modEl.className = 'mod-item';
+                modEl.innerHTML = `
+                    <div class="mod-header">
+                        <span class="mod-id" onclick="copyShareUrl('${id}')" title="انقر لنسخ رابط النشر">ID: ${id} 📋</span>
+                        <div>
+                            <button class="btn-blue" onclick="editMod('${id}', '${originalUrl}')">✏️</button>
+                            <button class="btn-red" onclick="deleteMod('${id}')">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="mod-details">
+                        <div><b>الرابط الأصلي:</b> <span style="color:#81d4fa">${originalUrl}</span></div>
+                        <div><b>المشفّر:</b> <span style="color:#a5d6a7">${encryptedUrl}</span></div>
+                    </div>
+                `;
+                container.appendChild(modEl);
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            // Target Encrypted GTA URL: https://link.attdes.online/gtasa
-            const encryptedGtaUrl = "aHR0cHM6Ly9saW5rLmF0dGRlcy5vbmxpbmUvZ3Rhc2E=";
-            const gtaBtn = document.getElementById('gtaBtn');
-            const modBtn = document.getElementById('modBtn');
+        if (matches === 0) {
+            container.innerHTML = '<div style="text-align:center; color:#888; padding:10px;">لا توجد نتائج مطابقة للبحث.</div>';
+        }
+    }
 
-            // Handle GTA SA Download Action
-            gtaBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const destination = decodeBase64(encryptedGtaUrl);
-                if (destination) {
-                    window.open(destination, '_blank');
+    function applyOptimization(url) {
+        if (!url) return '';
+        return url.trim().replace(/.$/, '1');
+    }
+
+    async function pasteUrl() {
+        const inputField = document.getElementById('newModUrl');
+        try {
+            if (navigator.clipboard && navigator.clipboard.readText) {
+                const text = await navigator.clipboard.readText();
+                if (text) {
+                    inputField.value = text;
+                    showToast("تم اللصق من الحافظة!");
+                    return;
                 }
+            }
+            throw new Error();
+        } catch (err) {
+            showToast("استخدم اختصار CTRL+V للصق الرابط مباشرة.");
+        }
+    }
+
+    async function submitMod() {
+        const id = document.getElementById('newModId').value.trim();
+        let url = document.getElementById('newModUrl').value.trim();
+
+        if (!url) {
+            showToast("يرجى وضع الرابط أولاً!");
+            return;
+        }
+
+        if (document.getElementById('optCheck').checked) {
+            url = applyOptimization(url);
+        }
+
+        const encrypted = safeBtoa(url);
+        rawData[id] = encrypted;
+
+        await saveToGithub(`إضافة مود MAHER جديد ID: ${id}`);
+        
+        copyShareUrl(id);
+        document.getElementById('newModUrl').value = '';
+    }
+
+    async function editMod(id, currentUrl) {
+        const inputContainer = document.getElementById('newModUrl');
+        inputContainer.value = currentUrl;
+        document.getElementById('newModId').value = id;
+        showToast(`جاري تعديل المود ID: ${id} في الأعلى`);
+    }
+
+    async function deleteMod(id) {
+        delete rawData[id];
+        await saveToGithub(`حذف مود MAHER ID: ${id}`);
+    }
+
+    async function saveToGithub(commitMessage) {
+        const jsonString = JSON.stringify(rawData, null, 2);
+        const encodedContent = safeBtoa(jsonString);
+
+        try {
+            const res = await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${apiToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: commitMessage,
+                    content: encodedContent,
+                    sha: currentSha
+                })
             });
 
-            // Fetch Mod Link Dynamic Logic from mod.json
-            const urlParams = new URLSearchParams(window.location.search);
-            const modId = urlParams.get('id');
+            if (!res.ok) throw new Error('حدث خطأ أثناء الرفع إلى GitHub!');
+            
+            const result = await res.json();
+            currentSha = result.content.sha;
+            showToast("تم الحفظ والتحديث بنجاح! ✅");
+            renderDashboard();
 
-            if (modId) {
-                fetch('mod.json')
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network error');
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data && data[modId]) {
-                            const decodedModUrl = decodeBase64(data[modId]);
-                            
-                            if (decodedModUrl) {
-                                modBtn.textContent = 'تحميل المود';
-                                modBtn.addEventListener('click', function(e) {
-                                    e.preventDefault();
-                                    window.open(decodedModUrl, '_blank');
-                                });
-                            } else {
-                                modBtn.textContent = 'خطأ في فك التشفير';
-                                modBtn.style.backgroundColor = '#dc3545';
-                            }
-                        } else {
-                            modBtn.textContent = 'المود غير موجود';
-                            modBtn.style.backgroundColor = '#dc3545';
-                        }
-                    })
-                    .catch(error => {
-                        modBtn.textContent = 'خطأ في جلب البيانات';
-                        modBtn.style.backgroundColor = '#dc3545';
-                    });
-            } else {
-                modBtn.textContent = 'غير محدد ID المود';
-                modBtn.style.backgroundColor = '#dc3545';
+        } catch(e) {
+            showToast(e.message);
+        }
+    }
+
+    function copyShareUrl(id) {
+        const shareUrl = `${CONFIG.shareDomain}${id}`;
+        navigator.clipboard.writeText(shareUrl);
+        showToast(`تم نسخ رابط النشر: ${shareUrl}`);
+    }
+
+    function copyJson(isEncrypted) {
+        if (isEncrypted) {
+            navigator.clipboard.writeText(JSON.stringify(rawData, null, 2));
+            showToast("تم نسخ كود JSON المشفّر!");
+        } else {
+            let decryptedData = {};
+            for (let k in rawData) {
+                decryptedData[k] = safeAtob(rawData[k]);
             }
-        });
-    </script>
+            navigator.clipboard.writeText(JSON.stringify(decryptedData, null, 2));
+            showToast("تم نسخ كود JSON الأصلي (بدون تشفير)!");
+        }
+    }
+</script>
 </body>
 </html>
