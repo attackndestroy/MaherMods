@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض البانر الإعلاني ثلاث مرات</title>
+    <title>تحميل المود</title>
     <style>
         body {
             margin: 0;
@@ -14,57 +14,73 @@
             align-items: center;
             min-height: 100vh;
             background-color: #f4f4f9;
+            font-family: Tahoma, sans-serif;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+        /* حاوية تجمع البانرات بجانب بعضها */
+        .banners-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* المسافة بين البانرات */
         }
         .banner-container {
-            margin-bottom: 20px; /* مسافة بسيطة بين كل بانر والآخر */
             text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- البانر الأول -->
-    <div class="banner-container">
-        <script>
-          atOptions = {
-            'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
-    </div>
+    <!-- عنوان الصفحة -->
+    <h1>تحميل المود</h1>
 
-    <!-- البانر الثاني -->
-    <div class="banner-container">
-        <script>
-          atOptions = {
-            'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
-    </div>
+    <!-- حاوية البانرات الأفقية -->
+    <div class="banners-wrapper">
+        <!-- البانر الأول -->
+        <div class="banner-container">
+            <script>
+              atOptions = {
+                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+        </div>
 
-    <!-- البانر الثالث -->
-    <div class="banner-container">
-        <script>
-          atOptions = {
-            'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
-    </div>
+        <!-- البانر الثاني -->
+        <div class="banner-container">
+            <script>
+              atOptions = {
+                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+        </div>
 
+        <!-- البانر الثالث -->
+        <div class="banner-container">
+            <script>
+              atOptions = {
+                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+        </div>
+    </div>
 
 </body>
 </html>
