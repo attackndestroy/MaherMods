@@ -4,100 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تحميل المود</title>
-    <!-- استيراد الخط العربي وخطوط الأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
-
         body {
-            background-color: #0f1016;
-            color: #ffffff;
-            height: 100vh;
+            margin: 0;
+            padding: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-image: linear-gradient(rgba(15, 16, 22, 0.85), rgba(15, 16, 22, 0.85)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            font-family: Tahoma, sans-serif;
         }
-
-        .container {
-            background: rgba(22, 24, 35, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
             text-align: center;
         }
-
-        /* زر التحميل الجذاب */
-        .download-btn {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
+        /* حاوية قابلة للتمرير الأفقي تضمن عدم نزول البانرات لأسفل أبداً */
+        .scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 15px;
+        }
+        /* حاوية البانرات الأفقية الدائمة */
+        .banners-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
             justify-content: center;
-            gap: 15px;
-            background: linear-gradient(135deg, #00b09b, #96c93d);
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 700;
-            padding: 20px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 10px 25px rgba(0, 176, 155, 0.4);
-            transition: all 0.3s ease;
-            overflow: hidden;
+            gap: 20px;
+            min-width: max-content; /* تجبر العناصر على البقاء في صف واحد أفقي */
+            margin: 0 auto;
         }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 176, 155, 0.6);
-            background: linear-gradient(135deg, #00c8b3, #a2db43);
-        }
-
-        .download-btn:active {
-            transform: translateY(1px);
-        }
-
-        .download-btn i {
-            font-size: 26px;
-            transition: transform 0.3s ease;
-        }
-
-        .download-btn:hover i {
-            transform: translateY(3px);
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 40px 20px;
-                width: 100%;
-            }
-            .download-btn {
-                font-size: 18px;
-                padding: 16px 30px;
-                width: 100%;
-            }
+        .banner-container {
+            text-align: center;
+            flex-shrink: 0; /* تمنع انكماش البانر في الشاشات الضيقة */
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- زر التحميل مع الرابط المباشر -->
-        <a href="https://www.profitableratecpmnetwork.com/dm1e2y9rk?key=b308d066a421c93b720ed44bd09ad202" class="download-btn" target="_blank" rel="noopener noreferrer">
-            <span>تحميل المود الآن</span>
-            <i class="fa-solid fa-cloud-arrow-down"></i>
-        </a>
+    <!-- عنوان الصفحة -->
+    <h1>تحميل المود</h1>
+
+    <!-- حاوية التمرير الأفقي -->
+    <div class="scroll-container">
+        <!-- حاوية البانرات الأفقية -->
+        <div class="banners-wrapper">
+            <!-- البانر الأول -->
+            <div class="banner-container">
+                <script>
+                  atOptions = {
+                    'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                    'format' : 'iframe',
+                    'height' : 600,
+                    'width' : 160,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            </div>
+
+            <!-- البانر الثاني -->
+            <div class="banner-container">
+                <script>
+                  atOptions = {
+                    'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                    'format' : 'iframe',
+                    'height' : 600,
+                    'width' : 160,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            </div>
+
+            <!-- البانر الثالث -->
+            <div class="banner-container">
+                <script>
+                  atOptions = {
+                    'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                    'format' : 'iframe',
+                    'height' : 600,
+                    'width' : 160,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            </div>
+        </div>
     </div>
 
 </body>
