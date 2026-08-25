@@ -3,85 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل المود</title>
+    <title>صفحة الإعلانات</title>
     <style>
         body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f9;
-            font-family: Tahoma, sans-serif;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 25px;
-        }
-        /* حاوية تجمع البانرات بجانب بعضها */
-        .banners-wrapper {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px; /* المسافة بين البانرات */
         }
-        .banner-container {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .ad-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .center-btn-container {
+            margin: 10px 0;
+            width: 100%;
             text-align: center;
+        }
+        .custom-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+            transition: background-color 0.3s ease;
+            width: 80%;
+        }
+        .custom-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <!-- عنوان الصفحة -->
-    <h1>تحميل المود</h1>
-
-    <!-- حاوية البانرات الأفقية -->
-    <div class="banners-wrapper">
-        <!-- البانر الأول -->
-        <div class="banner-container">
+    <div class="container">
+        <!-- الإعلان الأول -->
+        <div class="ad-box">
             <script>
               atOptions = {
-                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'key' : '88381abb09d003ebb851ac93c53dd8e1',
                 'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
+                'height' : 250,
+                'width' : 300,
                 'params' : {}
               };
             </script>
-            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            <script src="https://www.highrevenueformat.com/88381abb09d003ebb851ac93c53dd8e1/invoke.js"></script>
         </div>
 
-        <!-- البانر الثاني -->
-        <div class="banner-container">
+        <!-- الإعلان الثاني -->
+        <div class="ad-box">
             <script>
               atOptions = {
-                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'key' : '88381abb09d003ebb851ac93c53dd8e1',
                 'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
+                'height' : 250,
+                'width' : 300,
                 'params' : {}
               };
             </script>
-            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            <script src="https://www.highrevenueformat.com/88381abb09d003ebb851ac93c53dd8e1/invoke.js"></script>
         </div>
 
-        <!-- البانر الثالث -->
-        <div class="banner-container">
+        <!-- الزر في المنتصف بين الإعلان الثاني والثالث -->
+        <div class="center-btn-container">
+            <a href="https://www.profitableratecpmnetwork.com/dm1e2y9rk?key=b308d066a421c93b720ed44bd09ad202" class="custom-btn" target="_blank">انقر هنا للانتقال إلى الرابط</a>
+        </div>
+
+        <!-- الإعلان الثالث -->
+        <div class="ad-box">
             <script>
               atOptions = {
-                'key' : 'b5fdbc782bdb1a8ef1c85a93659993fb',
+                'key' : '88381abb09d003ebb851ac93c53dd8e1',
                 'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
+                'height' : 250,
+                'width' : 300,
                 'params' : {}
               };
             </script>
-            <script src="https://www.highrevenueformat.com/b5fdbc782bdb1a8ef1c85a93659993fb/invoke.js"></script>
+            <script src="https://www.highrevenueformat.com/88381abb09d003ebb851ac93c53dd8e1/invoke.js"></script>
+        </div>
+
+        <!-- الإعلان الرابع -->
+        <div class="ad-box">
+            <script>
+              atOptions = {
+                'key' : '88381abb09d003ebb851ac93c53dd8e1',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highrevenueformat.com/88381abb09d003ebb851ac93c53dd8e1/invoke.js"></script>
         </div>
     </div>
-
 
 </body>
 </html>
